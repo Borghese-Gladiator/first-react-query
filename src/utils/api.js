@@ -24,8 +24,7 @@ export async function postUsers(user) {
   await new Promise(r => setTimeout(r, 1000))
   userList.push({
     id: uuidv4(),
-    name: name === null ? "" : name,
-    username: username === null ? "" : username,
+    name: name === null ? "" : name
   })
   localStorage.setItem(storageKey, JSON.stringify(userList));
   return

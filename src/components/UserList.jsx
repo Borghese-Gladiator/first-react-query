@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useQueryClient, useQuery, useMutation } from 'react-query'
 import { getUsers, postUsers } from "../utils/api";
+import { v4 as uuidv4 } from 'uuid';
 
 function UserList() {
   const [text, setText] = useState('')
@@ -8,7 +9,7 @@ function UserList() {
   const queryClient = useQueryClient()
 
   // Queries
-  const { status, data, error, isFetching } = useQuery('todos', async () => {
+  const { status, data, error, isFetching } = useQuery('users', async () => {
     const data = await getUsers()
     console.log(data);
     return data
@@ -18,7 +19,7 @@ function UserList() {
   const mutation = useMutation(postUsers, {
     onSuccess: () => {
       // Invalidate and refetch
-      queryClient.invalidateQueries('todos')
+      queryClient.invalidateQueries('users')
     },
   });
 
@@ -27,7 +28,7 @@ function UserList() {
       <form
         onSubmit={e => {
           e.preventDefault()
-          mutation.mutate({ name: text })
+          mutation.mutate({ id: uuidv4(), name: text })
         }}
       >
         <input
