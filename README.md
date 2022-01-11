@@ -1,3 +1,20 @@
+# First React Query
+Read this article and got interested in trying React Query - [https://blog.bitsrc.io/how-to-start-using-react-query-4869e3d5680d](https://blog.bitsrc.io/how-to-start-using-react-query-4869e3d5680d)
+
+## Purpose of React Query
+"This library will help you to fetch, synchronize, update, and cache your remote data while also reducing the amount of code you need to write by providing you two simple hooks and one utility function."
+
+## Steps
+- npx create-react-app - (Node v14.18.2)
+- npm i react-query react-query-devtools uuid
+- moved default Header to a Header component with CSS styling as a CSS module
+- created UserList component with React Query userQuery to load data (loading, error, data)
+- wrote utils/api to get default user list from jsonplaceholder
+- added localStorage support to cache user list
+- wrote ADD functionality to use React Query mutator
+- deploy content to Netlify
+  - "By default, React Query Devtools are only included in bundles when process.env.NODE_ENV === 'development', so you don't need to worry about excluding them during a production buil" - [https://react-query.tanstack.com/devtools](https://react-query.tanstack.com/devtools)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
