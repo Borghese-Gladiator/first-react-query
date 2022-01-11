@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useQueryClient, useQuery, useMutation } from 'react-query'
 import { getUsers, postUsers } from "../utils/api";
 
