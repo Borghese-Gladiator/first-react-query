@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useQueryClient, useQuery, useMutation } from 'react-query'
 import { getUsers, postUsers } from "../utils/api";
 
@@ -8,8 +8,11 @@ function UserList() {
   const queryClient = useQueryClient()
 
   // Queries
-  const query = useQuery('todos', getUsers)
-  const { status, data, error, isFetching } = query
+  const { status, data, error, isFetching } = useQuery('todos', async () => {
+    const data = await getUsers()
+    console.log(data);
+    return data
+  })
   
   // Mutations
   const mutation = useMutation(postUsers, {
@@ -19,8 +22,6 @@ function UserList() {
     },
   });
 
-  console.log(query)
-  console.log(mutation)
   return (
     <div>
       <form
@@ -44,8 +45,8 @@ function UserList() {
         <>
           <div>Updated At: {new Date(data.ts).toLocaleTimeString()}</div>
           <ul>
-            {data.users.map(datum => (
-              <li key={datum}>{datum}</li>
+            {data.userList.map(({ id, name }, idx) => (
+              <li key={`user-${idx}`}>{name}</li>
             ))}
           </ul>
           <div>{isFetching ? 'Updating in background...' : ' '}</div>
