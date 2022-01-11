@@ -20,7 +20,7 @@ export async function getUsers() {
 }
 
 export async function postUsers(user) {
-  const { name, username } = user;
+  const { name } = user;
   await new Promise(r => setTimeout(r, 1000))
   userList.push({
     id: uuidv4(),
