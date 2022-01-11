@@ -14,6 +14,8 @@ Read this article and got interested in trying React Query - [https://blog.bitsr
 - wrote ADD functionality to use React Query mutator
 - deploy content to Netlify
   - "By default, React Query Devtools are only included in bundles when process.env.NODE_ENV === 'development', so you don't need to worry about excluding them during a production buil" - [https://react-query.tanstack.com/devtools](https://react-query.tanstack.com/devtools)
+- add meta title, description
+- redesign UI
 
 # Getting Started with Create React App
 
